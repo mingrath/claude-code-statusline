@@ -119,6 +119,10 @@ bun run test
 bun run lint
 ```
 
+## Related
+
+- **[claude-code-notify](https://github.com/mingrath/claude-code-notify)** — Get push notifications on Mac, iPhone, and Apple Watch when Claude Code needs your input. Uses terminal-notifier + ntfy.sh. Great companion for autonomous "walk away" sessions.
+
 ## License
 
 MIT
