@@ -1,6 +1,6 @@
 # Claude Code Statusline
 
-[![npm version](https://img.shields.io/npm/v/cc-statusline.svg)](https://www.npmjs.com/package/cc-statusline)
+[![npm version](https://img.shields.io/npm/v/@mingrath/claude-code-statusline.svg)](https://www.npmjs.com/package/@mingrath/claude-code-statusline)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 Custom statusline for Claude Code that shows real-time rate limit usage percentages with progress bars.
@@ -16,7 +16,7 @@ Custom statusline for Claude Code that shows real-time rate limit usage percenta
 ### Option A: npm install (recommended)
 
 ```bash
-npm i -g cc-statusline
+npm i -g @mingrath/claude-code-statusline
 ```
 
 Add to `~/.claude/settings.json`:
@@ -25,7 +25,7 @@ Add to `~/.claude/settings.json`:
 {
   "statusLine": {
     "type": "command",
-    "command": "cc-statusline",
+    "command": "bun -e \"import '@mingrath/claude-code-statusline'\"",
     "padding": 0
   }
 }

@@ -22,6 +22,26 @@ interface UsageLimits {
 	seven_day: { utilization: number; resets_at: string } | null;
 }
 
+function extractTokenFromRaw(raw: string): string | null {
+	// Try plain JSON first (legacy format)
+	try {
+		const parsed = JSON.parse(raw);
+		return parsed?.claudeAiOauth?.accessToken ?? null;
+	} catch {
+		// Not plain JSON
+	}
+
+	// Claude Code now stores credentials as hex-encoded binary
+	if (/^[0-9a-f]+$/i.test(raw) && raw.length > 20) {
+		const decoded = Buffer.from(raw, "hex").toString("utf-8");
+		// Extract token directly via regex (binary format has control chars)
+		const match = decoded.match(/sk-ant-oat01-[A-Za-z0-9_-]+/);
+		if (match) return match[0];
+	}
+
+	return null;
+}
+
 function getOAuthToken(): string | null {
 	try {
 		if (platform() === "darwin") {
@@ -29,8 +49,7 @@ function getOAuthToken(): string | null {
 				'security find-generic-password -s "Claude Code-credentials" -w',
 				{ encoding: "utf8", stdio: ["pipe", "pipe", "pipe"] },
 			).trim();
-			const parsed = JSON.parse(raw);
-			return parsed?.claudeAiOauth?.accessToken ?? null;
+			return extractTokenFromRaw(raw);
 		}
 
 		const { readFileSync } = require("node:fs");

@@ -1,13 +1,11 @@
 {
-  "name": "cc-statusline",
+  "name": "@mingrath/claude-code-statusline",
   "version": "1.0.0",
   "description": "Real-time rate limit %, context window %, session cost, and git status in your Claude Code statusline",
   "author": "Mingrath Mekavichai <mingrath@gmail.com> (https://github.com/mingrath)",
   "license": "MIT",
   "type": "module",
-  "bin": {
-    "cc-statusline": "./src/index.ts"
-  },
+  "main": "src/index.ts",
   "files": [
     "src/index.ts",
     "src/lib",
