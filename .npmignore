@@ -1,0 +1,16 @@
+__tests__/
+src/tests/
+src/commands/
+fixtures/
+data/
+docs/
+*.test.ts
+test.ts
+test-with-fixtures.ts
+biome.json
+tsconfig.json
+bun.lock
+statusline.config.json
+CLAUDE.md
+demo.png
+.DS_Store

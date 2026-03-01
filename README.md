@@ -1,5 +1,8 @@
 # Claude Code Statusline
 
+[![npm version](https://img.shields.io/npm/v/cc-statusline.svg)](https://www.npmjs.com/package/cc-statusline)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
 Custom statusline for Claude Code that shows real-time rate limit usage percentages with progress bars.
 
 ![Demo](demo.png)
@@ -10,20 +13,33 @@ Custom statusline for Claude Code that shows real-time rate limit usage percenta
 
 ## Quick Start
 
+### Option A: npm install (recommended)
+
 ```bash
-# Clone
-git clone https://github.com/mingrath/claude-code-statusline.git ~/.claude/scripts/statusline
-
-# Install dependencies
-cd ~/.claude/scripts/statusline && bun install
-
-# Copy config
-cp statusline.config.example.json statusline.config.json
-
-# Add to Claude Code settings (~/.claude/settings.json)
+npm i -g cc-statusline
 ```
 
-Add this to your `~/.claude/settings.json`:
+Add to `~/.claude/settings.json`:
+
+```json
+{
+  "statusLine": {
+    "type": "command",
+    "command": "cc-statusline",
+    "padding": 0
+  }
+}
+```
+
+### Option B: Clone manually
+
+```bash
+git clone https://github.com/mingrath/claude-code-statusline.git ~/.claude/scripts/statusline
+cd ~/.claude/scripts/statusline && bun install
+cp statusline.config.example.json statusline.config.json
+```
+
+Add to `~/.claude/settings.json`:
 
 ```json
 {
